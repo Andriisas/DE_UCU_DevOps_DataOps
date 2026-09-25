@@ -1,0 +1,150 @@
+andriisas@Mac-C33RP4M4YL Terraform % terraform destroy -target=google_compute_instance.vm_instance
+Acquiring state lock. This may take a few moments...
+google_compute_instance.vm_instance: Refreshing state... [id=projects/project-b99184b9-88d2-4aab-aa5/zones/us-central1-c/instances/test-vm]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # google_compute_instance.vm_instance will be destroyed
+  - resource "google_compute_instance" "vm_instance" {
+      - can_ip_forward             = false -> null
+      - cpu_platform               = "Intel Broadwell" -> null
+      - creation_timestamp         = "2026-09-25T03:06:22.335-07:00" -> null
+      - current_status             = "RUNNING" -> null
+      - deletion_policy            = "DELETE" -> null
+      - deletion_protection        = false -> null
+      - effective_labels           = {
+          - "goog-terraform-provisioned" = "true"
+        } -> null
+      - enable_display             = false -> null
+      - id                         = "projects/project-b99184b9-88d2-4aab-aa5/zones/us-central1-c/instances/test-vm" -> null
+      - instance_id                = "1835654830465218930" -> null
+      - label_fingerprint          = "vezUS-42LLM=" -> null
+      - labels                     = {} -> null
+      - machine_type               = "e2-standard-2" -> null
+      - metadata                   = {} -> null
+      - metadata_fingerprint       = "CI96a8sNeWY=" -> null
+      - name                       = "test-vm" -> null
+      - project                    = "project-b99184b9-88d2-4aab-aa5" -> null
+      - resource_policies          = [] -> null
+      - self_link                  = "https://www.googleapis.com/compute/v1/projects/project-b99184b9-88d2-4aab-aa5/zones/us-central1-c/instances/test-vm" -> null
+      - tags                       = [
+          - "devops-course",
+          - "ssh",
+        ] -> null
+      - tags_fingerprint           = "bPNY2gaTSIc=" -> null
+      - terraform_labels           = {
+          - "goog-terraform-provisioned" = "true"
+        } -> null
+      - zone                       = "us-central1-c" -> null
+        # (4 unchanged attributes hidden)
+
+      - boot_disk {
+          - auto_delete                     = true -> null
+          - device_name                     = "persistent-disk-0" -> null
+          - force_attach                    = false -> null
+          - guest_os_features               = [
+              - "UEFI_COMPATIBLE",
+              - "VIRTIO_SCSI_MULTIQUEUE",
+              - "SEV_CAPABLE",
+              - "SEV_SNP_CAPABLE",
+              - "SEV_LIVE_MIGRATABLE",
+              - "SEV_LIVE_MIGRATABLE_V2",
+              - "GVNIC",
+              - "IDPF",
+              - "TDX_CAPABLE",
+            ] -> null
+          - mode                            = "READ_WRITE" -> null
+          - source                          = "https://www.googleapis.com/compute/v1/projects/project-b99184b9-88d2-4aab-aa5/zones/us-central1-c/disks/test-vm" -> null
+            # (6 unchanged attributes hidden)
+
+          - initialize_params {
+              - architecture                = "X86_64" -> null
+              - enable_confidential_compute = false -> null
+              - image                       = "https://www.googleapis.com/compute/v1/projects/centos-cloud/global/images/centos-stream-9-v20260908" -> null
+              - labels                      = {} -> null
+              - provisioned_iops            = 0 -> null
+              - provisioned_throughput      = 0 -> null
+              - replica_zones               = [] -> null
+              - resource_manager_tags       = {} -> null
+              - resource_policies           = [] -> null
+              - size                        = 20 -> null
+              - type                        = "pd-standard" -> null
+                # (2 unchanged attributes hidden)
+            }
+        }
+
+      - network_interface {
+          - internal_ipv6_prefix_length = 0 -> null
+          - name                        = "nic0" -> null
+          - network                     = "https://www.googleapis.com/compute/v1/projects/project-b99184b9-88d2-4aab-aa5/global/networks/default" -> null
+          - network_ip                  = "10.128.0.2" -> null
+          - queue_count                 = 0 -> null
+          - stack_type                  = "IPV4_ONLY" -> null
+          - subnetwork                  = "https://www.googleapis.com/compute/v1/projects/project-b99184b9-88d2-4aab-aa5/regions/us-central1/subnetworks/default" -> null
+          - subnetwork_project          = "project-b99184b9-88d2-4aab-aa5" -> null
+          - vlan                        = 0 -> null
+            # (6 unchanged attributes hidden)
+
+          - access_config {
+              - nat_ip                 = "34.171.193.65" -> null
+              - network_tier           = "PREMIUM" -> null
+                # (1 unchanged attribute hidden)
+            }
+        }
+
+      - scheduling {
+          - automatic_restart           = true -> null
+          - availability_domain         = 0 -> null
+          - host_error_timeout_seconds  = 0 -> null
+          - min_node_cpus               = 0 -> null
+          - on_host_maintenance         = "MIGRATE" -> null
+          - preemptible                 = false -> null
+          - provisioning_model          = "STANDARD" -> null
+            # (2 unchanged attributes hidden)
+        }
+
+      - shielded_instance_config {
+          - enable_integrity_monitoring = true -> null
+          - enable_secure_boot          = false -> null
+          - enable_vtpm                 = true -> null
+        }
+    }
+
+Plan: 0 to add, 0 to change, 1 to destroy.
+╷
+│ Warning: Resource targeting is in effect
+│ 
+│ You are creating a plan with the -target option, which means that the result of this plan may not represent all of the changes requested
+│ by the current configuration.
+│ 
+│ The -target option is not for routine use, and is provided only for exceptional situations such as recovering from errors or mistakes, or
+│ when Terraform specifically suggests to use it as part of an error message.
+╵
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+google_compute_instance.vm_instance: Destroying... [id=projects/project-b99184b9-88d2-4aab-aa5/zones/us-central1-c/instances/test-vm]
+google_compute_instance.vm_instance: Still destroying... [id=projects/project-b99184b9-88d2-4aab-aa5/zones/us-central1-c/instances/test-vm, 00m10s elapsed]
+google_compute_instance.vm_instance: Still destroying... [id=projects/project-b99184b9-88d2-4aab-aa5/zones/us-central1-c/instances/test-vm, 00m20s elapsed]
+google_compute_instance.vm_instance: Destruction complete after 24s
+╷
+│ Warning: Applied changes may be incomplete
+│ 
+│ The plan was created with the -target option in effect, so some changes requested in the configuration may have been ignored and the
+│ output values may not be fully updated. Run the following command to verify that no other changes are pending:
+│     terraform plan
+│ 
+│ Note that the -target option is not suitable for routine use, and is provided only for exceptional situations such as recovering from
+│ errors or mistakes, or when Terraform specifically suggests to use it as part of an error message.
+╵
+Releasing state lock. This may take a few moments...
+
+Destroy complete! Resources: 1 destroyed.
+andriisas@Mac-C33RP4M4YL Terraform % 
